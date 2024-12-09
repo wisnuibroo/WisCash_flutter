@@ -1,30 +1,43 @@
 import 'package:flutter/material.dart';
+import 'package:wiscash_/page/widget/my_text.dart';
 
-class InboxMenu extends StatefulWidget {
+class InboxMenu extends StatelessWidget {
   const InboxMenu({super.key});
 
   @override
-  State<InboxMenu> createState() => _MyWidgetState();
-}
-
-class _MyWidgetState extends State<InboxMenu>
-    with SingleTickerProviderStateMixin {
-  late AnimationController _controller;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = AnimationController(vsync: this);
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+        appBar: AppBar(
+          title: MyText(
+            text: "Notification",
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
+          ),
+          backgroundColor: Color(0xFF025A5F),
+          elevation: 0,
+          automaticallyImplyLeading: false,
+        ),
+        backgroundColor: const Color(0xFFF8F9FA),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SizedBox(height: 30),
+              Icon(
+                Icons.notifications_off_outlined,
+                size: 90,
+                color: Colors.grey,
+              ),
+              MyText(
+                text: "Tidak ada notifikasi untuk Anda saat ini.",
+                fontSize: 13,
+                fontWeight: FontWeight.w400,
+                color: Colors.grey,
+              ),
+            ],
+          ),
+        ));
   }
 }
