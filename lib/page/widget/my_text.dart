@@ -4,9 +4,11 @@ class MyText extends StatelessWidget {
   final String text;
   final double fontSize;
   final FontWeight fontWeight;
-  final String ?fontFamily;
+  final String? fontFamily;
   final EdgeInsetsGeometry? padding;
   final Color color;
+
+  final dynamic decoration;
 
   const MyText({
     super.key,
@@ -14,8 +16,9 @@ class MyText extends StatelessWidget {
     required this.fontSize,
     required this.fontWeight,
     this.padding,
-    required this.color, 
+    required this.color,
     this.fontFamily,
+    this.decoration,
   });
 
   @override
@@ -25,11 +28,11 @@ class MyText extends StatelessWidget {
       child: Text(
         text,
         style: TextStyle(
-          color: color,
-          fontSize: fontSize,
-          fontWeight: fontWeight,
-          fontFamily: fontFamily
-        ),
+            color: color,
+            fontSize: fontSize,
+            fontWeight: fontWeight,
+            fontFamily: fontFamily,
+            decoration: decoration),
       ),
     );
   }

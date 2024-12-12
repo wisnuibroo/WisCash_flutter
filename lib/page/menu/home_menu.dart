@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 import 'package:wiscash_/page/home/grid_item.dart';
 import 'package:wiscash_/page/home/rekomendasi_lainnya_page.dart';
 import 'package:wiscash_/page/widget/my_balance_card.dart';
 import 'package:wiscash_/page/widget/my_category_button.dart';
+import 'package:wiscash_/component_page/promo_card_home_adapter.dart';
 import 'package:wiscash_/page/widget/my_text.dart';
 
 class HomeMenu extends StatefulWidget {
@@ -54,7 +56,6 @@ class _HomeMenuState extends State<HomeMenu> {
                 ),
               ),
             ),
-
             Expanded(
               child: SingleChildScrollView(
                 child: Column(
@@ -102,13 +103,13 @@ class _HomeMenuState extends State<HomeMenu> {
                               ],
                             ),
                           ),
-                          const SizedBox(height: 19),
+                          SizedBox(height: 19),
                           GridItem(
                             items: activeCategory == 'Populer'
                                 ? favoriteItems
                                 : otherItems,
                           ),
-                          const SizedBox(height: 55),
+                          SizedBox(height: 50),
                           const MyText(
                             text: "Rekomendasi Lainnya",
                             fontSize: 16,
@@ -145,110 +146,32 @@ class _HomeMenuState extends State<HomeMenu> {
                               ),
                             ),
                           ),
-                          const SizedBox(height: 25),
-                          const MyText(
-                            text: "Giveaway tiket dari platform populer",
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black,
-                          ),
-                          const SizedBox(height: 18),
-                          Container(
-                            height: 90,
-                            child: Stack(
+                          SizedBox(height: 50),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 6),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Positioned(
-                                  left: 0,
-                                  child: Container(
-                                    height: 90,
-                                    width: 90,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(20),
-                                      image: const DecorationImage(
-                                        image: AssetImage(
-                                            "assets/image/traveloka-logo.png"),
-                                        fit: BoxFit.contain,
-                                      ),
-                                      boxShadow: [
-                                        BoxShadow(
-                                          color: Colors.black.withOpacity(0.2),
-                                          blurRadius: 5,
-                                          offset: Offset(0, 4),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
+                                MyText(
+                                  text: "⚡ PROMO TERMURAH, DIJAMIN ⚡",
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16,
+                                  color: Colors.black,
                                 ),
-                                Positioned(
-                                  left: 45,
-                                  child: Container(
-                                    height: 90,
-                                    width: 90,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(20),
-                                      image: const DecorationImage(
-                                        image: AssetImage(
-                                            "assets/image/trip-logo.png"),
-                                        fit: BoxFit.contain,
-                                      ),
-                                      boxShadow: [
-                                        BoxShadow(
-                                          color: Colors.black.withOpacity(0.2),
-                                          blurRadius: 5,
-                                          offset: Offset(0, 4),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                                Positioned(
-                                  left: 95,
-                                  child: Container(
-                                    height: 90,
-                                    width: 90,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(20),
-                                      image: const DecorationImage(
-                                        image: AssetImage(
-                                            "assets/image/booking-logo.png"),
-                                        fit: BoxFit.contain,
-                                      ),
-                                      boxShadow: [
-                                        BoxShadow(
-                                          color: Colors.black.withOpacity(0.2),
-                                          blurRadius: 5,
-                                          offset: Offset(0, 4),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                                Positioned(
-                                  left: 145,
-                                  child: Container(
-                                    height: 90,
-                                    width: 90,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(20),
-                                      image: const DecorationImage(
-                                        image: AssetImage(
-                                            "assets/image/tiket-logo.png"),
-                                        fit: BoxFit.contain,
-                                      ),
-                                      boxShadow: [
-                                        BoxShadow(
-                                          color: Colors.black.withOpacity(0.2),
-                                          blurRadius: 5,
-                                          offset: Offset(0, 4),
-                                        ),
-                                      ],
-                                    ),
+                                GestureDetector(
+                                  onTap: () {},
+                                  child: MyText(
+                                    text: "Lihat semua",
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.green,
                                   ),
                                 ),
                               ],
                             ),
                           ),
-                          SizedBox(height: 50),
+                          PromoCardHomeAdapter(),
+                          SizedBox(height: 50)
                         ],
                       ),
                     ),
