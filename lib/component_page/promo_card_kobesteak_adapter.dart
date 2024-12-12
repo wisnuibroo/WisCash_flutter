@@ -3,12 +3,11 @@ import 'package:get/get.dart';
 import 'package:wiscash_/model/model_promo.dart';
 import 'package:wiscash_/page/home/burger_page.dart';
 import 'package:wiscash_/page/home/kepiting_page.dart';
-import 'package:wiscash_/page/home/kobesteak_page.dart';
 import 'package:wiscash_/page/home/lobster_page.dart';
 import 'package:wiscash_/page/home/pizzahut_page.dart';
 import 'package:wiscash_/page/widget/my_text.dart';
 
-class PromoCardHomeAdapter extends StatelessWidget {
+class PromoCardKobesteakAdapter extends StatelessWidget {
   final List<ModelPromo> promoItems = [
     ModelPromo(
       image:
@@ -17,14 +16,6 @@ class PromoCardHomeAdapter extends StatelessWidget {
       waktuBuka: 'SETIAP HARI',
       title: 'Pizza Hut 3 Varian Rasa',
       harga: 'Rp234.257',
-    ),
-    ModelPromo(
-      image:
-          'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/16/a1/33/dc/caption.jpg?w=1200&h=-1&s=1',
-      diskon: '43%',
-      waktuBuka: 'RABU, KAMIS, SABTU',
-      title: 'Kobe Beef Steak Sakura',
-      harga: 'Rp855.000',
     ),
     ModelPromo(
       image:
@@ -37,10 +28,10 @@ class PromoCardHomeAdapter extends StatelessWidget {
     ModelPromo(
       image:
           'https://cdn.idntimes.com/content-images/community/2022/04/fromandroid-09bf54918d79163f511080b7150d68fb_600x400.jpg',
-      diskon: '15%',
+      diskon: '21%',
       waktuBuka: 'MINGGU',
       title: 'Kepiting Saus Madu Sedang ',
-      harga: 'Rp340.000',
+      harga: 'Rp15.800',
     ),
     ModelPromo(
       image:
@@ -58,7 +49,7 @@ class PromoCardHomeAdapter extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16.0),
+          padding: EdgeInsets.symmetric(horizontal: 0),
           child: MyText(
             text: "Diskon s.d. 49% seharian. Cepetan, WisCash!",
             fontSize: 12,
@@ -75,18 +66,12 @@ class PromoCardHomeAdapter extends StatelessWidget {
             itemBuilder: (context, index) {
               final item = promoItems[index];
               return Padding(
-                padding: const EdgeInsets.only(left: 16.0),
+                padding: const EdgeInsets.only(left: 16),
                 child: GestureDetector(
                   onTap: () {
                     if (item.title.contains('Pizza Hut')) {
                       Get.to(
                         () => PizzahutPage(),
-                        transition: Transition.rightToLeft,
-                        duration: const Duration(milliseconds: 350),
-                      );
-                    } else if (item.title.contains('Steak')) {
-                      Get.to(
-                        () => KobeSteakPage(),
                         transition: Transition.rightToLeft,
                         duration: const Duration(milliseconds: 350),
                       );

@@ -21,7 +21,7 @@ class NavbarPage extends StatelessWidget {
 
   final List<IconData> pageIcons = [
     Icons.home,
-    Icons.trending_up,
+    Icons.shopping_cart,
     Icons.notifications,
     Icons.person,
   ];

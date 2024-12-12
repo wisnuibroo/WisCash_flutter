@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wiscash_/model/model_promo.dart';
-import 'package:wiscash_/page/home/burger_page.dart';
 import 'package:wiscash_/page/home/kepiting_page.dart';
+
 import 'package:wiscash_/page/home/kobesteak_page.dart';
 import 'package:wiscash_/page/home/lobster_page.dart';
 import 'package:wiscash_/page/home/pizzahut_page.dart';
 import 'package:wiscash_/page/widget/my_text.dart';
 
-class PromoCardHomeAdapter extends StatelessWidget {
+class PromoCardBurgerAdapter extends StatelessWidget {
   final List<ModelPromo> promoItems = [
     ModelPromo(
       image:
@@ -25,14 +25,6 @@ class PromoCardHomeAdapter extends StatelessWidget {
       waktuBuka: 'RABU, KAMIS, SABTU',
       title: 'Kobe Beef Steak Sakura',
       harga: 'Rp855.000',
-    ),
-    ModelPromo(
-      image:
-          'https://awsimages.detik.net.id/community/media/visual/2021/03/31/pork-burger-4.jpeg?w=7244',
-      diskon: '31%',
-      waktuBuka: 'SETIAP HARI',
-      title: 'Burger Beef And Cheese Jumbo',
-      harga: 'Rp70.000',
     ),
     ModelPromo(
       image:
@@ -58,7 +50,7 @@ class PromoCardHomeAdapter extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16.0),
+          padding: EdgeInsets.symmetric(horizontal: 0),
           child: MyText(
             text: "Diskon s.d. 49% seharian. Cepetan, WisCash!",
             fontSize: 12,
@@ -75,7 +67,7 @@ class PromoCardHomeAdapter extends StatelessWidget {
             itemBuilder: (context, index) {
               final item = promoItems[index];
               return Padding(
-                padding: const EdgeInsets.only(left: 16.0),
+                padding: const EdgeInsets.only(left: 16),
                 child: GestureDetector(
                   onTap: () {
                     if (item.title.contains('Pizza Hut')) {
@@ -87,12 +79,6 @@ class PromoCardHomeAdapter extends StatelessWidget {
                     } else if (item.title.contains('Steak')) {
                       Get.to(
                         () => KobeSteakPage(),
-                        transition: Transition.rightToLeft,
-                        duration: const Duration(milliseconds: 350),
-                      );
-                    } else if (item.title.contains('Burger')) {
-                      Get.to(
-                        () => BurgerPage(),
                         transition: Transition.rightToLeft,
                         duration: const Duration(milliseconds: 350),
                       );

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wiscash_/model/model_promo.dart';
-import 'package:wiscash_/page/home/pizzahut_page.dart';
+import 'package:wiscash_/page/home/burger_page.dart';
+import 'package:wiscash_/page/home/kepiting_page.dart';
+import 'package:wiscash_/page/home/kobesteak_page.dart';
+import 'package:wiscash_/page/home/lobster_page.dart';
 import 'package:wiscash_/page/widget/my_text.dart';
 
 class PromoCardPizzaAdapter extends StatelessWidget {
@@ -25,10 +28,10 @@ class PromoCardPizzaAdapter extends StatelessWidget {
     ModelPromo(
       image:
           'https://cdn.idntimes.com/content-images/community/2022/04/fromandroid-09bf54918d79163f511080b7150d68fb_600x400.jpg',
-      diskon: '21%',
+      diskon: '15%',
       waktuBuka: 'MINGGU',
       title: 'Kepiting Saus Madu Sedang ',
-      harga: 'Rp15.800',
+      harga: 'Rp340.000',
     ),
     ModelPromo(
       image:
@@ -66,9 +69,27 @@ class PromoCardPizzaAdapter extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 16),
                 child: GestureDetector(
                   onTap: () {
-                    if (item.title.contains('Pizza Hut')) {
+                    if (item.title.contains('Steak')) {
                       Get.to(
-                        () => PizzahutPage(),
+                        () => KobeSteakPage(),
+                        transition: Transition.rightToLeft,
+                        duration: const Duration(milliseconds: 350),
+                      );
+                    } else if (item.title.contains('Burger')) {
+                      Get.to(
+                        () => BurgerPage(),
+                        transition: Transition.rightToLeft,
+                        duration: const Duration(milliseconds: 350),
+                      );
+                    } else if (item.title.contains('Kepiting')) {
+                      Get.to(
+                        () => KepitingPage(),
+                        transition: Transition.rightToLeft,
+                        duration: const Duration(milliseconds: 350),
+                      );
+                    } else if (item.title.contains('Lobster')) {
+                      Get.to(
+                        () => LobsterPage(),
                         transition: Transition.rightToLeft,
                         duration: const Duration(milliseconds: 350),
                       );

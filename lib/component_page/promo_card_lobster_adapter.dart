@@ -4,11 +4,10 @@ import 'package:wiscash_/model/model_promo.dart';
 import 'package:wiscash_/page/home/burger_page.dart';
 import 'package:wiscash_/page/home/kepiting_page.dart';
 import 'package:wiscash_/page/home/kobesteak_page.dart';
-import 'package:wiscash_/page/home/lobster_page.dart';
 import 'package:wiscash_/page/home/pizzahut_page.dart';
 import 'package:wiscash_/page/widget/my_text.dart';
 
-class PromoCardHomeAdapter extends StatelessWidget {
+class PromoCardLobsterAdapter extends StatelessWidget {
   final List<ModelPromo> promoItems = [
     ModelPromo(
       image:
@@ -42,14 +41,6 @@ class PromoCardHomeAdapter extends StatelessWidget {
       title: 'Kepiting Saus Madu Sedang ',
       harga: 'Rp340.000',
     ),
-    ModelPromo(
-      image:
-          'https://img.okezone.com/content/2020/11/27/298/2317559/rasa-kurang-lezat-ketahui-7-kesalahan-memasak-lobster-Q4Ho0wUVLD.jpg',
-      diskon: '49%',
-      waktuBuka: 'SABTU, MINGGU',
-      title: 'Lobster Saus Keju Jumbo',
-      harga: 'Rp306.800',
-    ),
   ];
 
   @override
@@ -58,7 +49,7 @@ class PromoCardHomeAdapter extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16.0),
+          padding: EdgeInsets.symmetric(horizontal: 0),
           child: MyText(
             text: "Diskon s.d. 49% seharian. Cepetan, WisCash!",
             fontSize: 12,
@@ -75,7 +66,7 @@ class PromoCardHomeAdapter extends StatelessWidget {
             itemBuilder: (context, index) {
               final item = promoItems[index];
               return Padding(
-                padding: const EdgeInsets.only(left: 16.0),
+                padding: const EdgeInsets.only(left: 16),
                 child: GestureDetector(
                   onTap: () {
                     if (item.title.contains('Pizza Hut')) {
@@ -99,12 +90,6 @@ class PromoCardHomeAdapter extends StatelessWidget {
                     } else if (item.title.contains('Kepiting')) {
                       Get.to(
                         () => KepitingPage(),
-                        transition: Transition.rightToLeft,
-                        duration: const Duration(milliseconds: 350),
-                      );
-                    } else if (item.title.contains('Lobster')) {
-                      Get.to(
-                        () => LobsterPage(),
                         transition: Transition.rightToLeft,
                         duration: const Duration(milliseconds: 350),
                       );
