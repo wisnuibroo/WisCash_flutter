@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:wiscash_/controller/home/balance_controller.dart';
 import 'package:wiscash_/controller/home/history_controller.dart';
 
-class BeliKobesteakController extends GetxController {
+class BeliSekarangController extends GetxController {
   void handleBeliSekarang({
     required BuildContext context,
     required String productName,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wiscash_/component_page/promo_card_burger_adapter.dart';
-import 'package:wiscash_/controller/home/beli_pizza_controller.dart';
+import 'package:wiscash_/controller/home/beli_sekarang_controller.dart';
 import 'package:wiscash_/page/widget/my_text.dart';
 
 class BurgerPage extends StatelessWidget {
@@ -9,7 +9,7 @@ class BurgerPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final beliTiketController = Get.put(BeliPizzaController());
+    final beliSekarangController = Get.put(BeliSekarangController());
 
     return Scaffold(
       appBar: AppBar(
@@ -159,10 +159,10 @@ class BurgerPage extends StatelessWidget {
             Expanded(
               child: ElevatedButton(
                 onPressed: () {
-                  beliTiketController.handleBeliSekarang(
+                  beliSekarangController.handleBeliSekarang(
                     context: context,
                     productName: "Burger Beef And Chese Jumbo",
-                    price: 234257,
+                    price: 70000,
                   );
                 },
                 style: ElevatedButton.styleFrom(

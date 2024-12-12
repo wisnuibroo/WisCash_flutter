@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wiscash_/component_page/promo_card_kepiting_adapter.dart';
-import 'package:wiscash_/component_page/promo_card_pizza_adapter.dart';
-import 'package:wiscash_/controller/home/beli_pizza_controller.dart';
+import 'package:wiscash_/controller/home/beli_sekarang_controller.dart';
 import 'package:wiscash_/page/widget/my_text.dart';
 
 class KepitingPage extends StatelessWidget {
@@ -10,7 +9,7 @@ class KepitingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final beliTiketController = Get.put(BeliPizzaController());
+    final beliSekarangController = Get.put(BeliSekarangController());
 
     return Scaffold(
       appBar: AppBar(
@@ -160,10 +159,10 @@ class KepitingPage extends StatelessWidget {
             Expanded(
               child: ElevatedButton(
                 onPressed: () {
-                  beliTiketController.handleBeliSekarang(
+                  beliSekarangController.handleBeliSekarang(
                     context: context,
                     productName: "Kepiting Saus Madu Sedang",
-                    price: 234257,
+                    price: 340000,
                   );
                 },
                 style: ElevatedButton.styleFrom(
