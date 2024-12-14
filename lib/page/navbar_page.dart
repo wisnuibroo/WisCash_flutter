@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'package:wiscash_/controller/navbar_controller.dart';
-import 'package:wiscash_/page/menu/finance_menu.dart';
+import 'package:wiscash_/page/menu/trending_menu.dart';
 import 'package:wiscash_/page/menu/home_menu.dart';
 import 'package:wiscash_/page/menu/inbox_menu.dart';
 import 'package:wiscash_/page/menu/profile_menu.dart';
@@ -14,14 +14,14 @@ class NavbarPage extends StatelessWidget {
 
   final List<Widget> menus = [
     HomeMenu(),
-    FinanceMenu(),
+    TrendingMenu(),
     InboxMenu(),
     ProfileMenu(),
   ];
 
   final List<IconData> pageIcons = [
     Icons.home,
-    Icons.shopping_cart,
+    Icons.trending_up_sharp,
     Icons.notifications,
     Icons.person,
   ];

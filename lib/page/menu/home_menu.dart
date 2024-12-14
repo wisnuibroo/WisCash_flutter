@@ -54,6 +54,13 @@ class _HomeMenuState extends State<HomeMenu> {
                     height: 50,
                   ),
                 ),
+                actions: [
+                  IconButton(
+                    icon: const Icon(Icons.shopping_cart),
+                    onPressed: () {},
+                    color: Colors.white70,
+                  ),
+                ],
               ),
             ),
             Expanded(
@@ -158,15 +165,15 @@ class _HomeMenuState extends State<HomeMenu> {
                                   fontSize: 16,
                                   color: Colors.black,
                                 ),
-                                GestureDetector(
-                                  onTap: () {},
-                                  child: MyText(
-                                    text: "Lihat semua",
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.green,
-                                  ),
-                                ),
+                                // GestureDetector(
+                                //   onTap: () {},
+                                //   child: MyText(
+                                //     text: "Lihat semua",
+                                //     fontSize: 12,
+                                //     fontWeight: FontWeight.bold,
+                                //     color: Colors.green,
+                                //   ),
+                                // ),
                               ],
                             ),
                           ),
