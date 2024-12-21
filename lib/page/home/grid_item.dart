@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class GridItem extends StatelessWidget {
   final List<Map<String, dynamic>> items;
@@ -22,34 +23,47 @@ class GridItem extends StatelessWidget {
       ),
       itemBuilder: (context, index) {
         final item = items[index];
-        return Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              padding: const EdgeInsets.all(12),
-              decoration: const BoxDecoration(
-                color: Color(0xFFF0F5FF),
-                shape: BoxShape.circle,
+
+        return GestureDetector(
+          onTap: () {
+            if (item['route'] != null) {
+              Get.to(
+                item['route'],
+                transition: Transition.rightToLeft,
+                duration: Duration(milliseconds: 350),
+              );
+            }
+          },
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                padding: const EdgeInsets.all(12),
+                decoration: const BoxDecoration(
+                  color: Color(0xFFF0F5FF),
+                  shape: BoxShape.circle,
+                ),
+                child: Icon(
+                  item['icon'],
+                  color: Colors.black,
+                  size: 32,
+                ),
               ),
-              child: Icon(
-                item['icon'],
-                color: Colors.black,
-                size: 32,
+               SizedBox(height: 6),
+           
+              Text(
+                item['title'],
+                textAlign: TextAlign.center,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                style: const TextStyle(
+                  fontSize: 11,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.black87,
+                ),
               ),
-            ),
-            const SizedBox(height: 6),
-            Text(
-              item['title'],
-              textAlign: TextAlign.center,
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis,
-              style: const TextStyle(
-                fontSize: 11,
-                fontWeight: FontWeight.w500,
-                color: Colors.black87,
-              ),
-            ),
-          ],
+            ],
+          ),
         );
       },
     );

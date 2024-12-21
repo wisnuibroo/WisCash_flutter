@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class MyTextField extends StatelessWidget {
-  final TextEditingController controller;
+  final TextEditingController ?controller;
   final String hintText;
   final String prefixText;
   final Color fillColor;
@@ -9,7 +9,7 @@ class MyTextField extends StatelessWidget {
 
   const MyTextField({
     Key? key,
-    required this.controller,
+     this.controller,
     this.hintText = '',
     this.prefixText = '',
     this.fillColor = Colors.white,

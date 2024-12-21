@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'package:wiscash_/page/home/grid_item.dart';
+import 'package:wiscash_/page/home/nabung_page.dart';
 import 'package:wiscash_/page/home/rekomendasi_lainnya_page.dart';
 import 'package:wiscash_/page/widget/my_balance_card.dart';
 import 'package:wiscash_/page/widget/my_category_button.dart';
@@ -17,12 +18,36 @@ class _HomeMenuState extends State<HomeMenu> {
   String activeCategory = 'Populer';
 
   final List<Map<String, dynamic>> favoriteItems = [
-    {'icon': Icons.savings, 'title': 'Nabung by WisCash'},
-    {'icon': Icons.handshake_rounded, 'title': 'Pinjaman'},
-    {'icon': Icons.electric_bolt_sharp, 'title': 'PLN'},
-    {'icon': Icons.rocket_launch_sharp, 'title': 'Pulsa/Paket Data'},
-    {'icon': Icons.water_drop, 'title': 'Air PDAM'},
-    {'icon': Icons.live_tv, 'title': 'Internet & TV Kabel'},
+    {
+      'icon': Icons.savings,
+      'title': 'Nabung by WisGoals',
+      'route': () => NabungPage(),
+    },
+    {
+      'icon': Icons.handshake_rounded,
+      'title': 'Pinjaman',
+      'route': (),
+    },
+    {
+      'icon': Icons.electric_bolt_sharp,
+      'title': 'PLN',
+      'route': (),
+    },
+    {
+      'icon': Icons.rocket_launch_sharp,
+      'title': 'Pulsa/Paket Data',
+      'route': (),
+    },
+    {
+      'icon': Icons.water_drop,
+      'title': 'Air PDAM',
+      'route': (),
+    },
+    {
+      'icon': Icons.live_tv,
+      'title': 'Internet & TV Kabel',
+      'route': (),
+    },
   ];
 
   final List<Map<String, dynamic>> otherItems = [
@@ -36,7 +61,7 @@ class _HomeMenuState extends State<HomeMenu> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF025A5F),
+      backgroundColor:  Color(0xFF025A5F),
       body: SafeArea(
         child: Column(
           children: [
@@ -54,13 +79,7 @@ class _HomeMenuState extends State<HomeMenu> {
                     height: 50,
                   ),
                 ),
-                actions: [
-                  IconButton(
-                    icon: const Icon(Icons.shopping_cart),
-                    onPressed: () {},
-                    color: Colors.white70,
-                  ),
-                ],
+                
               ),
             ),
             Expanded(
@@ -165,15 +184,6 @@ class _HomeMenuState extends State<HomeMenu> {
                                   fontSize: 16,
                                   color: Colors.black,
                                 ),
-                                // GestureDetector(
-                                //   onTap: () {},
-                                //   child: MyText(
-                                //     text: "Lihat semua",
-                                //     fontSize: 12,
-                                //     fontWeight: FontWeight.bold,
-                                //     color: Colors.green,
-                                //   ),
-                                // ),
                               ],
                             ),
                           ),
