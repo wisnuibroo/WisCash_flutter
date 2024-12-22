@@ -12,7 +12,7 @@ class RekomendasiLainnyaPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put(HistoryController());
-    
+
     final favoriteController = Get.put(FavoriteController());
     final beliTiketController = Get.put(BeliTiketController());
 
@@ -48,21 +48,43 @@ class RekomendasiLainnyaPage extends StatelessWidget {
                 title: "Pantai Kuta | Bali, Indonesia",
                 imagePath: "assets/image/pantai-kuta-bali.png",
                 harga: "Rp5000",
+                rating: 8,
               ),
               RekomendasiAdapter(
                 title: "Nusa Penida | Bali, Indonesia",
                 imagePath: "assets/image/nusa-penida-bali.png",
                 harga: "Rp105.000",
+                rating: 9,
+              ),
+              RekomendasiAdapter(
+                title: "The Amazing Safari | Bali, Indonesia",
+                imagePath: "assets/image/bali-safari.png",
+                harga: "Rp400.000",
+                rating: 9,
               ),
               RekomendasiAdapter(
                 title: "Candi Prambanan | Yogyakarta, Indonesia",
                 imagePath: "assets/image/candi-prambanan.png",
                 harga: "Rp50.000",
+                rating: 8,
               ),
               RekomendasiAdapter(
                 title: "Candi Borobudur | Yogyakarta, Indonesia",
                 imagePath: "assets/image/candi-borobudur.png",
                 harga: "Rp150.000",
+                rating: 8,
+              ),
+              RekomendasiAdapter(
+                title: "Monas | Jakarta, Indonesia",
+                imagePath: "assets/image/monas-jakarta.png",
+                harga: "Rp24.000",
+                rating: 7,
+              ),
+              RekomendasiAdapter(
+                title: "Trans Studio | Bandung, Indonesia",
+                imagePath: "assets/image/trans-studio.png",
+                harga: "Rp195.000",
+                rating: 8,
               ),
             ],
           ),

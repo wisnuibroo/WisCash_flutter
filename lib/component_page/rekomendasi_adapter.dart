@@ -10,12 +10,14 @@ class RekomendasiAdapter extends StatelessWidget {
   final String title;
   final String imagePath;
   final String harga;
+  final double rating;
 
   const RekomendasiAdapter({
     Key? key,
     required this.title,
     required this.imagePath,
     required this.harga,
+    required this.rating,
   }) : super(key: key);
 
   @override
@@ -25,101 +27,165 @@ class RekomendasiAdapter extends StatelessWidget {
 
     void showNotification(String message, {bool isSuccess = true}) {
       Get.snackbar(
-        isSuccess ? "Berhasil" : "Dihapus",
+        isSuccess ? "Berhasil" : "Gagal",
         message,
         backgroundColor: isSuccess ? Colors.green : Colors.red,
         colorText: Colors.white,
-        snackPosition: SnackPosition.BOTTOM,
+        snackPosition: SnackPosition.TOP,
         duration: const Duration(seconds: 2),
       );
     }
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Stack(
-          children: [
-            Container(
-              width: double.infinity,
-              height: 150,
-              decoration: BoxDecoration(
+    return Container(
+      margin: const EdgeInsets.symmetric(vertical: 10),
+      padding: const EdgeInsets.all(10),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(15),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.1),
+            blurRadius: 6,
+            offset: const Offset(0, 3),
+          ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Stack(
+            children: [
+              ClipRRect(
                 borderRadius: BorderRadius.circular(15),
-                image: DecorationImage(
-                  image: AssetImage(imagePath),
+                child: Image.asset(
+                  imagePath,
+                  width: double.infinity,
+                  height: 180,
                   fit: BoxFit.cover,
                 ),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.2),
-                    blurRadius: 5,
-                    offset: const Offset(0, 4),
-                  ),
-                ],
               ),
-            ),
-            Positioned(
-              top: 10,
-              right: 10,
-              child: Obx(() {
-                bool isFavorite = favoriteController.tasks
-                    .any((favorite) => favorite.title == title);
-                return IconButton(
-                  onPressed: () {
-                    if (isFavorite) {
-                      favoriteController.deleteTaskByTitle(title);
-                      showNotification("$title dihapus dari favorit!",
-                          isSuccess: false);
-                    } else {
-                      favoriteController.addTask(
-                        ModelFavorite(
-                          title: title,
-                          imagePath: imagePath,
-                        ),
-                      );
-                      showNotification("$title ditambahkan ke favorit!");
-                    }
-                  },
-                  icon: Icon(
-                    isFavorite ? Icons.bookmark : Icons.bookmark_border,
-                    color: Colors.white,
-                    size: 30,
+              Positioned(
+                top: 10,
+                left: 10,
+                child: Container(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                  decoration: BoxDecoration(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.circular(10),
                   ),
-                );
-              }),
+                  child: MyText(
+                    text: "Preferred Partner",
+                    color: Colors.white,
+                    fontSize: 12,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Positioned(
+                bottom: 10,
+                left: 10,
+                child: Container(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                  decoration: BoxDecoration(
+                    color: Colors.black.withOpacity(0.6),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Row(
+                    children: [
+                      const Icon(
+                        Icons.star,
+                        color: Colors.yellow,
+                        size: 14,
+                      ),
+                      const SizedBox(width: 5),
+                      Text(
+                        "$rating",
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 12,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 10),
+          Text(
+            title,
+            style: const TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
             ),
-          ],
-        ),
-        const SizedBox(height: 10),
-        MyText(
-          text: title,
-          fontSize: 15,
-          fontWeight: FontWeight.bold,
-          color: Colors.black,
-        ),
-        const SizedBox(height: 5),
-        MyText(
-          text: "Harga tiket: $harga",
-          fontSize: 15,
-          fontWeight: FontWeight.bold,
-          color: Colors.black,
-        ),
-        const SizedBox(height: 10),
-        MyButton(
-          onPressed: () {
-            int hargaTiket = int.parse(harga.replaceAll(RegExp(r'\D'), ''));
-            beliTiketController.handleBeliTicket(
-              context: context,
-              titleTiket: title,
-              hargaTiket: hargaTiket,
-            );
-          },
-          textButton: "Beli Tiket",
-          backgroundColor: const Color(0xFF025A5F),
-          textColor: Colors.white,
-          radius: 15,
-        ),
-        const SizedBox(height: 40),
-      ],
+          ),
+          const SizedBox(height: 5),
+          Text(
+            harga,
+            style: const TextStyle(
+              fontSize: 14,
+              fontWeight: FontWeight.w600,
+              color: Colors.red,
+            ),
+          ),
+          const SizedBox(height: 10),
+          Row(
+            children: [
+              Expanded(
+                child: MyButton(
+                  onPressed: () {
+                    int hargaTiket =
+                        int.parse(harga.replaceAll(RegExp(r'\D'), ''));
+                    beliTiketController.handleBeliTicket(
+                      context: context,
+                      titleTiket: title,
+                      hargaTiket: hargaTiket,
+                    );
+                  },
+                  textButton: "Beli Tiket",
+                  backgroundColor: const Color(0xFF025A5F),
+                  textColor: Colors.white,
+                  radius: 12,
+                ),
+              ),
+              const SizedBox(width: 10),
+              Positioned(
+                top: 10,
+                right: 10,
+                child: Obx(() {
+                  bool isFavorite = favoriteController.tasks
+                      .any((favorite) => favorite.title == title);
+                  return IconButton(
+                    onPressed: () {
+                      if (isFavorite) {
+                        favoriteController.deleteTaskByTitle(title);
+                        showNotification("$title dihapus dari favorit!",
+                            isSuccess: false);
+                      } else {
+                        favoriteController.addTask(
+                          ModelFavorite(
+                            title: title,
+                            imagePath: imagePath,
+                          ),
+                        );
+                        showNotification("$title ditambahkan ke favorit!");
+                      }
+                    },
+                    icon: Icon(
+                      isFavorite ? Icons.bookmark : Icons.bookmark_border,
+                      color: Colors.grey,
+                      size: 30,
+                    ),
+                  );
+                }),
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
