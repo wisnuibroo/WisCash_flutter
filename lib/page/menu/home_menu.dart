@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:wiscash_/page/home/donasi_page.dart';
 
 import 'package:wiscash_/page/home/grid_item.dart';
 import 'package:wiscash_/page/home/nabung_page.dart';
@@ -24,9 +25,9 @@ class _HomeMenuState extends State<HomeMenu> {
       'route': () => NabungPage(),
     },
     {
-      'icon': Icons.handshake_rounded,
-      'title': 'Pinjaman',
-      'route': (),
+      'icon': Icons.history_edu,
+      'title': 'Donasi',
+      'route': () => DonasiPage(),
     },
     {
       'icon': Icons.electric_bolt_sharp,
@@ -53,7 +54,7 @@ class _HomeMenuState extends State<HomeMenu> {
   final List<Map<String, dynamic>> otherItems = [
     {'icon': Icons.phone, 'title': 'Telkom'},
     {'icon': Icons.school, 'title': 'Pendidikan'},
-    {'icon': Icons.history_edu, 'title': 'Donasi'},
+    {'icon': Icons.play_arrow_rounded, 'title': 'Voucher Google Play'},
     {'icon': Icons.add_card, 'title': 'BPJS'},
     {'icon': Icons.gamepad, 'title': 'Voucher Games'},
   ];
@@ -61,7 +62,7 @@ class _HomeMenuState extends State<HomeMenu> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor:  Color(0xFF025A5F),
+      backgroundColor: Color(0xFF025A5F),
       body: SafeArea(
         child: Column(
           children: [
@@ -79,7 +80,6 @@ class _HomeMenuState extends State<HomeMenu> {
                     height: 50,
                   ),
                 ),
-                
               ),
             ),
             Expanded(

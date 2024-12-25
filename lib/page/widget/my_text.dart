@@ -25,15 +25,13 @@ class MyText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: padding,
-      child: Text(
-        text,
-        style: TextStyle(
-            color: color,
-            fontSize: fontSize,
-            fontWeight: fontWeight,
-            fontFamily: fontFamily,
-            decoration: decoration),
-      ),
+      child: Text(text,
+          style: TextStyle(
+              color: color,
+              fontSize: fontSize,
+              fontWeight: fontWeight,
+              fontFamily: fontFamily,
+              decoration: decoration)),
     );
   }
 }
