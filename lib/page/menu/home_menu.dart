@@ -4,6 +4,7 @@ import 'package:wiscash_/page/home/donasi_page.dart';
 
 import 'package:wiscash_/page/home/grid_item.dart';
 import 'package:wiscash_/page/home/nabung_page.dart';
+import 'package:wiscash_/page/home/pln_page.dart';
 import 'package:wiscash_/page/home/rekomendasi_lainnya_page.dart';
 import 'package:wiscash_/page/widget/my_balance_card.dart';
 import 'package:wiscash_/page/widget/my_category_button.dart';
@@ -32,7 +33,7 @@ class _HomeMenuState extends State<HomeMenu> {
     {
       'icon': Icons.electric_bolt_sharp,
       'title': 'PLN',
-      'route': (),
+      'route': () => PlnPage(),
     },
     {
       'icon': Icons.rocket_launch_sharp,

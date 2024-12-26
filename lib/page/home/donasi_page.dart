@@ -56,7 +56,7 @@ class _DonasiPageState extends State<DonasiPage> {
     },
     {
       'imageUrl':
-          'https://tangandiatas.com/wp-content/uploads/2024/01/Logo-TDA-8.0-Full-Color-1.png',
+          'https://tdasurabaya.org/wp-content/uploads/2019/12/logo-tdasurabaya.png',
       'title': 'Tangan Di Atas'
     },
     {
