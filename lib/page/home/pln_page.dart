@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:wiscash_/page/home/tagihan_listrik_page.dart';
 import 'package:wiscash_/page/home/token_listrik_page.dart';
 import 'package:wiscash_/page/widget/my_text.dart';
 
@@ -65,10 +66,13 @@ class PlnPage extends StatelessWidget {
                     ),
                     trailing:
                         const Icon(Icons.chevron_right, color: Colors.black),
-
-                    // onTap: () {
-                    //   // Handle tap action
-                    // },
+                    onTap: () {
+                      Get.to(
+                        () => TagihanListrikPage(),
+                        transition: Transition.rightToLeft,
+                        duration: const Duration(milliseconds: 350),
+                      );
+                    },
                   ),
                 ],
               ),

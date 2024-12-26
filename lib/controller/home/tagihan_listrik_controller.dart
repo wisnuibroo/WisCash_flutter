@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:wiscash_/controller/home/balance_controller.dart';
 import 'package:wiscash_/controller/home/history_controller.dart';
 
-class TokenListrikController extends GetxController {
+class TagihanListrikController extends GetxController {
   final TextEditingController nomorMeterController = TextEditingController();
   final TextEditingController amountController = TextEditingController();
   var nomorTerakhir = ''.obs; // Menyimpan nomor meter terakhir yang dimasukkan
@@ -48,9 +48,9 @@ class TokenListrikController extends GetxController {
     balanceController.addBalance(-nominal);
 
     historyController.addTransaction(
-      type: 'Token Listrik',
+      type: 'Tagihan Listrik',
       amount: nominal,
-      detail: 'Pembayaran token listrik untuk nomor meter $nomorMeter',
+      detail: 'Pembayaran tagihan listrik untuk nomor meter $nomorMeter',
     );
 
     nomorMeterController.clear();
