@@ -5,6 +5,7 @@ import 'package:wiscash_/page/home/donasi_page.dart';
 import 'package:wiscash_/page/home/grid_item.dart';
 import 'package:wiscash_/page/home/nabung_page.dart';
 import 'package:wiscash_/page/home/pln_page.dart';
+import 'package:wiscash_/page/home/pulsa_page.dart';
 import 'package:wiscash_/page/home/rekomendasi_lainnya_page.dart';
 import 'package:wiscash_/page/widget/my_balance_card.dart';
 import 'package:wiscash_/page/widget/my_category_button.dart';
@@ -38,7 +39,7 @@ class _HomeMenuState extends State<HomeMenu> {
     {
       'icon': Icons.rocket_launch_sharp,
       'title': 'Pulsa/Paket Data',
-      'route': (),
+      'route': () => PulsaPage(),
     },
     {
       'icon': Icons.water_drop,
