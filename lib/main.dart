@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:wiscash_/controller/home/airpdam_controller.dart';
 import 'package:wiscash_/controller/home/balance_controller.dart';
 import 'package:wiscash_/controller/home/buat_impian_controller.dart';
 import 'package:wiscash_/controller/home/history_controller.dart';
@@ -14,6 +15,7 @@ void main() {
   Get.put(BuatImpianController());
   Get.put(TokenListrikController());
   Get.put(TagihanListrikController());
+  Get.put(AirpdamController());
   runApp(const MyApp());
 }
 

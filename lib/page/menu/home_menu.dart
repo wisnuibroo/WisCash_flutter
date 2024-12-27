@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:wiscash_/page/home/airpdam_page.dart';
 import 'package:wiscash_/page/home/donasi_page.dart';
-
 import 'package:wiscash_/page/home/grid_item.dart';
 import 'package:wiscash_/page/home/nabung_page.dart';
 import 'package:wiscash_/page/home/pln_page.dart';
@@ -44,7 +44,7 @@ class _HomeMenuState extends State<HomeMenu> {
     {
       'icon': Icons.water_drop,
       'title': 'Air PDAM',
-      'route': (),
+      'route': () => AirpdamPage(),
     },
     {
       'icon': Icons.live_tv,
