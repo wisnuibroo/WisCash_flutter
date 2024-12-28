@@ -6,7 +6,6 @@ import 'package:wiscash_/controller/home/history_controller.dart';
 class SekolahController extends GetxController {
   final TextEditingController amountController = TextEditingController();
   final selectedJenisBiaya = ''.obs;
-  var nomorTerakhir = ''.obs;
 
   void handleSekolah(BuildContext context, int nominal) {
     final balanceController = Get.find<BalanceController>();
