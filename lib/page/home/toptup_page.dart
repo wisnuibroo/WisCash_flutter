@@ -27,7 +27,7 @@ class TopupPage extends StatelessWidget {
       ),
       backgroundColor: const Color(0xFFF8F9FA),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 16),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -35,50 +35,59 @@ class TopupPage extends StatelessWidget {
               Obx(() {
                 final balance = Get.find<BalanceController>().balance.value;
                 return Container(
-                  decoration: BoxDecoration(
-                    gradient: const LinearGradient(
-                      colors: [Color(0xFF025A5F), Color(0xFF00B4D8)],
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
+                    decoration: BoxDecoration(
+                      gradient: const LinearGradient(
+                        colors: [Color(0xFF025A5F), Color(0xFF00B4D8)],
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                      ),
+                      borderRadius: BorderRadius.circular(16),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black26,
+                          blurRadius: 6,
+                          offset: const Offset(0, 3),
+                        ),
+                      ],
                     ),
-                    borderRadius: BorderRadius.circular(16),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black26,
-                        blurRadius: 6,
-                        offset: const Offset(0, 3),
-                      ),
-                    ],
-                  ),
-                  padding: const EdgeInsets.all(16),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const MyText(
-                        text: "Saldo Anda:    ",
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
-                      const SizedBox(height: 8),
-                      MyText(
-                        text: "Rp $balance",
-                        fontSize: 28,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
-                    ],
-                  ),
-                );
+                    padding: EdgeInsets.all(16),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            MyText(
+                              text: "Saldo Anda",
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                            SizedBox(height: 8),
+                            MyText(
+                              text: "Rp $balance",
+                              fontSize: 28,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                          ],
+                        ),
+                        Image.asset(
+                          'assets/image/wiscash2.png',
+                          width: 110,
+                          height: 45,
+                        ),
+                      ],
+                    ));
               }),
-              const SizedBox(height: 24),
-              const MyText(
+              SizedBox(height: 24),
+              MyText(
                 text: "Masukkan Nominal",
-                fontSize: 15,
-                fontWeight: FontWeight.bold,
-                color: Colors.black87,
+                fontSize: 12,
+                fontWeight: FontWeight.normal,
+                color: Colors.grey,
               ),
-              const SizedBox(height: 8),
+              SizedBox(height: 8),
               MyTextField(
                 controller: topupController.amountController,
                 hintText: '',
@@ -86,14 +95,14 @@ class TopupPage extends StatelessWidget {
                 fillColor: Colors.white,
                 borderRadius: 12.0,
               ),
-              const SizedBox(height: 24),
-              const MyText(
+              SizedBox(height: 24),
+              MyText(
                 text: "Pilih Metode Top Up",
-                fontSize: 15,
+                fontSize: 14,
                 fontWeight: FontWeight.bold,
-                color: Colors.black87,
+                color: Colors.black,
               ),
-              const SizedBox(height: 8),
+              SizedBox(height: 8),
               Column(
                 children: topupController.topUpMethods.keys.map((method) {
                   return Column(
@@ -103,8 +112,7 @@ class TopupPage extends StatelessWidget {
                             color: const Color(0xFF025A5F)),
                         title: Text(
                           method,
-                          style: const TextStyle(
-                              fontFamily: 'Poppins', fontSize: 14),
+                          style: TextStyle(fontFamily: 'Poppins', fontSize: 14),
                         ),
                         trailing: Obx(() {
                           return Icon(
@@ -126,14 +134,14 @@ class TopupPage extends StatelessWidget {
                       Obx(() {
                         if (topupController.selectedMethod.value == method) {
                           return Padding(
-                            padding: const EdgeInsets.only(left: 16.0),
+                            padding: EdgeInsets.only(left: 16.0),
                             child: Column(
                               children: topupController.topUpMethods[method]!
                                   .map((option) {
                                 return ListTile(
                                   title: Text(
                                     option,
-                                    style: const TextStyle(
+                                    style: TextStyle(
                                         fontFamily: 'Poppins', fontSize: 14),
                                   ),
                                   leading: Obx(() {
@@ -156,14 +164,14 @@ class TopupPage extends StatelessWidget {
                             ),
                           );
                         } else {
-                          return const SizedBox();
+                          return SizedBox();
                         }
                       }),
                     ],
                   );
                 }).toList(),
               ),
-              const SizedBox(height: 22),
+              SizedBox(height: 22),
               SizedBox(
                 child: MyButton(
                   onPressed: () {
@@ -172,12 +180,12 @@ class TopupPage extends StatelessWidget {
                   textButton: "Konfirmasi Top Up",
                   backgroundColor: const Color(0xFF025A5F),
                   textColor: Colors.white,
-                  radius: 10,
+                  radius: 20,
                   width: double.infinity,
-                  height: 50,
+                  height: 40,
                 ),
               ),
-              const SizedBox(height: 30),
+              SizedBox(height: 30),
             ],
           ),
         ),
