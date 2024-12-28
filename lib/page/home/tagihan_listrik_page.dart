@@ -86,14 +86,17 @@ class TagihanListrikPage extends StatelessWidget {
               if (tagihanListrikController.nomorTerakhir.isEmpty) {
                 return Row(
                   children: [
-                    Icon(Icons.receipt_long, size: 30, color: Colors.grey),
-                    SizedBox(width: 10),
+                    Image.network(
+                      'https://static.vecteezy.com/system/resources/thumbnails/024/952/617/small_2x/invoice-bill-receipt-png.png',
+                      width: 50,
+                      height: 50,
+                    ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         MyText(
                           text: "Belum ada nomor terakhir",
-                          fontSize: 12,
+                          fontSize: 13,
                           fontWeight: FontWeight.bold,
                           color: Colors.black,
                         ),
@@ -121,7 +124,7 @@ class TagihanListrikPage extends StatelessWidget {
               width: double.infinity,
               child: MyButton(
                 onPressed: () {
-                  tagihanListrikController.handleTokenListrik(context);
+                  tagihanListrikController.handleTagihanListrik(context);
                 },
                 textButton: "Bayar",
                 backgroundColor: const Color(0xFF025A5F),

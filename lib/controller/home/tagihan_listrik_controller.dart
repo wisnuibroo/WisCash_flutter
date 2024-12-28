@@ -8,7 +8,7 @@ class TagihanListrikController extends GetxController {
   final TextEditingController amountController = TextEditingController();
   var nomorTerakhir = ''.obs; // Menyimpan nomor meter terakhir yang dimasukkan
 
-  void handleTokenListrik(BuildContext context) {
+  void handleTagihanListrik(BuildContext context) {
     final balanceController = Get.find<BalanceController>();
     final historyController = Get.find<HistoryController>();
 
@@ -37,7 +37,7 @@ class TagihanListrikController extends GetxController {
     }
 
     if (balanceController.balance.value < nominal) {
-      _showErrorSnackbar('Saldo tidak cukup untuk membayar token listrik.');
+      _showErrorSnackbar('Saldo tidak cukup untuk membayar tagihan listrik.');
       return;
     }
 
@@ -76,7 +76,7 @@ class TagihanListrikController extends GetxController {
   void _showSuccessSnackbar(int nominal) {
     Get.snackbar(
       'Berhasil',
-      'Pembayaran token listrik sebesar Rp $nominal berhasil.',
+      'Pembayaran tagihan listrik sebesar Rp $nominal berhasil.',
       backgroundColor: Colors.green,
       colorText: Colors.white,
       icon: const Icon(Icons.check_circle, color: Colors.white),
