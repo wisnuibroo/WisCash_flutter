@@ -4,7 +4,8 @@ import 'package:wiscash_/controller/home/balance_controller.dart';
 import 'package:wiscash_/controller/home/history_controller.dart';
 
 class AirpdamController extends GetxController {
-  final TextEditingController nomorPelangganController = TextEditingController();
+  final TextEditingController nomorPelangganController =
+      TextEditingController();
   final TextEditingController amountController = TextEditingController();
   final selectedLokasi = ''.obs;
   var nomorTerakhir = ''.obs;
@@ -51,14 +52,14 @@ class AirpdamController extends GetxController {
     historyController.addTransaction(
       type: 'Air PDAM',
       amount: nominal,
-      detail: 'Isi Ulang Air PDAM ${selectedLokasi.value}',
+      detail: 'Tagihan Air PDAM ${selectedLokasi.value}',
     );
 
     nomorTerakhir.value = inputNomorPelanggan;
     nomorPelangganController.clear();
     amountController.clear();
 
-    _showSuccessSnackbar('Isi Ulang Air PDAM', nominal);
+    _showSuccessSnackbar('Tagihan Air PDAM', nominal);
   }
 
   void _showErrorSnackbar(String message) {
