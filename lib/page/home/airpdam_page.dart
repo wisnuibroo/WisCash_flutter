@@ -62,12 +62,14 @@ class AirpdamPage extends StatelessWidget {
                   borderRadius: BorderRadius.circular(12),
                   border: Border.all(color: Colors.grey.shade300),
                 ),
-                child: DropdownButtonFormField<String>(
+                child: DropdownButton<String>(
                   isExpanded: true,
-                  decoration: InputDecoration(
-                    hintText: "Pilih Lokasi",
-                    border: InputBorder.none,
-                    hintStyle: TextStyle(color: Colors.grey),
+                  underline: SizedBox(),
+                  hint: MyText(
+                    text: "Pilih Operator",
+                    fontSize: 13,
+                    fontWeight: FontWeight.normal,
+                    color: Colors.grey,
                   ),
                   value: airpdamController.selectedLokasi.value.isEmpty
                       ? null
@@ -75,7 +77,7 @@ class AirpdamPage extends StatelessWidget {
                   onChanged: (String? value) {
                     airpdamController.selectedLokasi.value = value ?? "";
                   },
-                  items: ["Pilih Lokasi", ...lokasi].map((String operator) {
+                  items: lokasi.map((String operator) {
                     return DropdownMenuItem<String>(
                       value: operator,
                       child: MyText(
@@ -113,7 +115,7 @@ class AirpdamPage extends StatelessWidget {
             SizedBox(height: 4),
             MyTextField(
               controller: airpdamController.amountController,
-              hintText: 'Masukkan Nominal',
+              hintText: " ",
               prefixText: "Rp ",
               fillColor: Colors.white,
               borderRadius: 12.0,
