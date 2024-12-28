@@ -5,6 +5,7 @@ import 'package:wiscash_/page/home/donasi_page.dart';
 import 'package:wiscash_/page/home/grid_item.dart';
 import 'package:wiscash_/page/home/internet_page.dart';
 import 'package:wiscash_/page/home/nabung_page.dart';
+import 'package:wiscash_/page/home/pendidikan_page.dart';
 import 'package:wiscash_/page/home/pln_page.dart';
 import 'package:wiscash_/page/home/pulsa_page.dart';
 import 'package:wiscash_/page/home/rekomendasi_lainnya_page.dart';
@@ -61,7 +62,11 @@ class _HomeMenuState extends State<HomeMenu> {
       'title': 'Telkom',
       'route': () => TelkomPage(),
     },
-    {'icon': Icons.school, 'title': 'Pendidikan'},
+    {
+      'icon': Icons.school,
+      'title': 'Pendidikan',
+      'route': () => PendidikanPage(),
+    },
     {'icon': Icons.play_arrow_rounded, 'title': 'Voucher Google Play'},
     {'icon': Icons.add_card, 'title': 'BPJS'},
     {'icon': Icons.gamepad, 'title': 'Voucher Games'},
