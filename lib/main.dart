@@ -5,6 +5,7 @@ import 'package:wiscash_/controller/home/balance_controller.dart';
 import 'package:wiscash_/controller/home/buat_impian_controller.dart';
 import 'package:wiscash_/controller/home/history_controller.dart';
 import 'package:wiscash_/controller/home/tagihan_listrik_controller.dart';
+import 'package:wiscash_/controller/home/telkom_controller.dart';
 import 'package:wiscash_/controller/home/token_listrik_controller.dart';
 import 'package:wiscash_/page/navbar_page.dart';
 import 'package:wiscash_/page/splashscreen_page.dart';
@@ -16,6 +17,7 @@ void main() {
   Get.put(TokenListrikController());
   Get.put(TagihanListrikController());
   Get.put(AirpdamController());
+  Get.put(TelkomController());
   runApp(const MyApp());
 }
 

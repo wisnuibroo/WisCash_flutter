@@ -45,12 +45,11 @@ class GridItem extends StatelessWidget {
                 ),
                 child: Icon(
                   item['icon'],
-                  color: Colors.black,
+                  color: Color(0xFF025A5F),
                   size: 32,
                 ),
               ),
-               SizedBox(height: 6),
-           
+              SizedBox(height: 6),
               Text(
                 item['title'],
                 textAlign: TextAlign.center,

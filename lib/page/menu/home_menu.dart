@@ -8,6 +8,7 @@ import 'package:wiscash_/page/home/nabung_page.dart';
 import 'package:wiscash_/page/home/pln_page.dart';
 import 'package:wiscash_/page/home/pulsa_page.dart';
 import 'package:wiscash_/page/home/rekomendasi_lainnya_page.dart';
+import 'package:wiscash_/page/home/telkom_page.dart';
 import 'package:wiscash_/page/widget/my_balance_card.dart';
 import 'package:wiscash_/page/widget/my_category_button.dart';
 import 'package:wiscash_/component_page/promo_card_home_adapter.dart';
@@ -55,7 +56,11 @@ class _HomeMenuState extends State<HomeMenu> {
   ];
 
   final List<Map<String, dynamic>> otherItems = [
-    {'icon': Icons.phone, 'title': 'Telkom'},
+    {
+      'icon': Icons.phone,
+      'title': 'Telkom',
+      'route': () => TelkomPage(),
+    },
     {'icon': Icons.school, 'title': 'Pendidikan'},
     {'icon': Icons.play_arrow_rounded, 'title': 'Voucher Google Play'},
     {'icon': Icons.add_card, 'title': 'BPJS'},
