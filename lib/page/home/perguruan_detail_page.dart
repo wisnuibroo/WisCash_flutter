@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:wiscash_/controller/home/perguruan_controller.dart';
 import 'package:wiscash_/controller/home/sekolah_controller.dart';
+import 'package:wiscash_/page/widget/my_perguruan_bottom_sheet.dart';
 import 'package:wiscash_/page/widget/my_sekolah_bottom_sheet.dart';
 import 'package:wiscash_/page/widget/my_text.dart';
 
-class SekolahDetailPage extends StatelessWidget {
-  const SekolahDetailPage({super.key});
+class PerguruanDetailPage extends StatelessWidget {
+  const PerguruanDetailPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final SekolahController sekolahController = Get.put(SekolahController());
+    final PerguruanController perguruanController =
+        Get.put(PerguruanController());
 
     final List<String> jenisBiaya = [
       "SPP",
@@ -33,7 +36,7 @@ class SekolahDetailPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: MyText(
-          text: "Sekolah",
+          text: "Perguruan Tinggi",
           fontSize: 20,
           fontWeight: FontWeight.bold,
           color: Colors.black,
@@ -77,11 +80,11 @@ class SekolahDetailPage extends StatelessWidget {
                     fontWeight: FontWeight.normal,
                     color: Colors.grey,
                   ),
-                  value: sekolahController.selectedJenisBiaya.value.isEmpty
+                  value: perguruanController.selectedJenisBiaya.value.isEmpty
                       ? null
-                      : sekolahController.selectedJenisBiaya.value,
+                      : perguruanController.selectedJenisBiaya.value,
                   onChanged: (String? value) {
-                    sekolahController.selectedJenisBiaya.value = value ?? "";
+                    perguruanController.selectedJenisBiaya.value = value ?? "";
                   },
                   items: jenisBiaya.map((String operator) {
                     return DropdownMenuItem<String>(
@@ -126,7 +129,7 @@ class SekolahDetailPage extends StatelessWidget {
                           ),
                         ),
                         builder: (context) {
-                          return MySekolahBottomSheet(
+                          return MyPerguruanBottomSheet(
                             nominal: nominalList[index],
                           );
                         },

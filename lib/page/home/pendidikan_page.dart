@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:wiscash_/page/home/perguruan_tinggi_page.dart';
 import 'package:wiscash_/page/home/sekolah_page.dart';
 import 'package:wiscash_/page/widget/my_text.dart';
 
@@ -53,7 +54,13 @@ class PendidikanPage extends StatelessWidget {
                 fontWeight: FontWeight.bold,
                 color: Colors.black),
             trailing: Icon(Icons.arrow_forward_ios, size: 16),
-            onTap: () {},
+            onTap: () {
+              Get.to(
+                () => PerguruanTinggiPage(),
+                transition: Transition.rightToLeft,
+                duration: const Duration(milliseconds: 350),
+              );
+            },
           ),
           Divider(height: 1, color: Colors.grey[300]),
         ],
