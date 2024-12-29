@@ -83,11 +83,11 @@ class SekolahDetailPage extends StatelessWidget {
                   onChanged: (String? value) {
                     sekolahController.selectedJenisBiaya.value = value ?? "";
                   },
-                  items: jenisBiaya.map((String operator) {
+                  items: jenisBiaya.map((String biaya) {
                     return DropdownMenuItem<String>(
-                      value: operator,
+                      value: biaya,
                       child: MyText(
-                        text: operator,
+                        text: biaya,
                         fontSize: 13,
                         fontWeight: FontWeight.normal,
                         color: Colors.black,

@@ -66,7 +66,7 @@ class AirpdamPage extends StatelessWidget {
                   isExpanded: true,
                   underline: SizedBox(),
                   hint: MyText(
-                    text: "Pilih Operator",
+                    text: "Pilih lokasi",
                     fontSize: 13,
                     fontWeight: FontWeight.normal,
                     color: Colors.grey,
@@ -77,11 +77,11 @@ class AirpdamPage extends StatelessWidget {
                   onChanged: (String? value) {
                     airpdamController.selectedLokasi.value = value ?? "";
                   },
-                  items: lokasi.map((String operator) {
+                  items: lokasi.map((String lokasi) {
                     return DropdownMenuItem<String>(
-                      value: operator,
+                      value: lokasi,
                       child: MyText(
-                        text: operator,
+                        text: lokasi,
                         fontSize: 13,
                         fontWeight: FontWeight.normal,
                         color: Colors.black,
