@@ -31,7 +31,7 @@ class MySekolahBottomSheet extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               MyText(
-                text: "Nominal SPP",
+                text: "Nominal Transaksi",
                 fontSize: 14,
                 color: Colors.black,
                 fontWeight: FontWeight.bold,
@@ -49,7 +49,7 @@ class MySekolahBottomSheet extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               MyText(
-                text: "Biaya Transaksi",
+                text: "Biaya Admin",
                 fontSize: 14,
                 color: Colors.black,
                 fontWeight: FontWeight.bold,
