@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wiscash_/controller/home/perguruan_controller.dart';
-import 'package:wiscash_/controller/home/sekolah_controller.dart';
 import 'package:wiscash_/page/widget/my_perguruan_bottom_sheet.dart';
-import 'package:wiscash_/page/widget/my_sekolah_bottom_sheet.dart';
 import 'package:wiscash_/page/widget/my_text.dart';
 
 class PerguruanDetailPage extends StatelessWidget {
