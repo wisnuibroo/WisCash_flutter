@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wiscash_/page/home/perguruan_detail_page.dart';
-import 'package:wiscash_/page/widget/my_donasi_list.dart';
+import 'package:wiscash_/page/widget/my_item_list.dart';
 import 'package:wiscash_/page/widget/my_text.dart';
 
 class PerguruanTinggiPage extends StatefulWidget {
@@ -195,7 +195,7 @@ class _PerguruanPageState extends State<PerguruanTinggiPage> {
                 itemCount: filteredList.length,
                 itemBuilder: (context, index) {
                   final item = filteredList[index];
-                  return MyDonasiList(
+                  return MyItemList(
                     imageUrl: item['imageUrl']!,
                     title: item['title']!,
                     onPressed: () {

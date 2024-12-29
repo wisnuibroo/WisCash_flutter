@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class MyDonasiList extends StatelessWidget {
+class MyItemList extends StatelessWidget {
   final String imageUrl;
   final String title;
   final VoidCallback? onPressed;
 
-  const MyDonasiList(
+  const MyItemList(
       {super.key, 
       required this.imageUrl, 
       required this.title, 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wiscash_/page/home/donasi_detail_page.dart';
-import 'package:wiscash_/page/widget/my_donasi_list.dart';
+import 'package:wiscash_/page/widget/my_item_list.dart';
 import 'package:wiscash_/page/widget/my_text.dart';
 
 class DonasiPage extends StatefulWidget {
@@ -174,7 +174,7 @@ class _DonasiPageState extends State<DonasiPage> {
                 itemCount: filteredList.length,
                 itemBuilder: (context, index) {
                   final item = filteredList[index];
-                  return MyDonasiList(
+                  return MyItemList(
                     imageUrl: item['imageUrl']!,
                     title: item['title']!,
                     onPressed: () {
