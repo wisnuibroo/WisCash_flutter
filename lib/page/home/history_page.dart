@@ -19,17 +19,17 @@ class HistoryPage extends StatelessWidget {
           color: Colors.black,
         ),
         backgroundColor: const Color(0xFFF8F9FA),
+        elevation: 0,
       ),
-      backgroundColor: const Color(0xFFF8F9FA),
+      backgroundColor: const Color(0xFFF5F5F5),
       body: Obx(() {
-        final history = historyController.transactionHistory.reversed
-            .toList(); // Membalik urutan
+        final history = historyController.transactionHistory.reversed.toList();
 
         if (history.isEmpty) {
           return Center(
             child: MyText(
-              text: "Tidak ada riwayat transaksi.",
-              fontSize: 13,
+              text: "Tidak ada history transaksi terbaru.",
+              fontSize: 14,
               fontWeight: FontWeight.w400,
               color: Colors.black54,
             ),
@@ -37,15 +37,35 @@ class HistoryPage extends StatelessWidget {
         }
 
         return ListView.builder(
-          padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
           itemCount: history.length,
           itemBuilder: (context, index) {
             final transaction = history[index];
-            return Card(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12),
-              ),
+            final isTopUp = transaction['type'] == 'Top-Up';
+
+            return Container(
               margin: const EdgeInsets.only(bottom: 16.0),
+              decoration: BoxDecoration(
+                gradient: isTopUp
+                    ? LinearGradient(
+                        colors: [Color(0xFF025A5F), Color(0xFF00B4D8)],
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                      )
+                    : LinearGradient(
+                        colors: [Color(0xFFF44336), Color(0xFFF96B60)],
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                      ),
+                borderRadius: BorderRadius.circular(16),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black26,
+                    blurRadius: 8,
+                    offset: Offset(0, 4),
+                  ),
+                ],
+              ),
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Column(
@@ -54,35 +74,45 @@ class HistoryPage extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        MyText(
-                          text: transaction['type'],
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                          color: transaction['type'] == 'Top-Up'
-                              ? Colors.green
-                              : Colors.red,
+                        Row(
+                          children: [
+                            Icon(
+                              isTopUp
+                                  ? Icons.arrow_upward
+                                  : Icons.arrow_downward,
+                              color: Colors.white,
+                              size: 24,
+                            ),
+                            const SizedBox(width: 8),
+                            MyText(
+                              text: transaction['type'],
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                          ],
                         ),
                         MyText(
                           text: "Rp ${transaction['amount']}",
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
-                          color: Colors.black,
+                          color: Colors.white,
                         ),
                       ],
                     ),
-                    const SizedBox(height: 8),
+                    const SizedBox(height: 12),
                     MyText(
                       text: transaction['detail'],
                       fontSize: 14,
                       fontWeight: FontWeight.w400,
-                      color: Colors.black54,
+                      color: Colors.white70,
                     ),
-                    const SizedBox(height: 4),
+                    const SizedBox(height: 8),
                     MyText(
                       text: _formatDate(transaction['date']),
                       fontSize: 12,
                       fontWeight: FontWeight.w400,
-                      color: Colors.black45,
+                      color: Colors.white60,
                     ),
                   ],
                 ),
@@ -97,7 +127,7 @@ class HistoryPage extends StatelessWidget {
   String _formatDate(DateTime date) {
     return "${date.day.toString().padLeft(2, '0')}/"
         "${date.month.toString().padLeft(2, '0')}/"
-        "${date.year} ${date.hour.toString().padLeft(2, '0')}:"
+        "${date.year} ${date.hour.toString().padLeft(2, '0')}:" // Mengubah format tanggal
         "${date.minute.toString().padLeft(2, '0')}";
   }
 }
