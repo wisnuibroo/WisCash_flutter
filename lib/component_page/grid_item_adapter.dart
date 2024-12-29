@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class GridItem extends StatelessWidget {
+class GridItemAdapter extends StatelessWidget {
   final List<Map<String, dynamic>> items;
 
-  const GridItem({
+  const GridItemAdapter({
     Key? key,
     required this.items,
   }) : super(key: key);

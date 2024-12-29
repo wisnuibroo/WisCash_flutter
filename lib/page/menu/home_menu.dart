@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:wiscash_/component_page/grid_item_adapter.dart';
 import 'package:wiscash_/page/home/airpdam_page.dart';
 import 'package:wiscash_/page/home/donasi_page.dart';
-import 'package:wiscash_/page/home/grid_item.dart';
 import 'package:wiscash_/page/home/internet_page.dart';
 import 'package:wiscash_/page/home/nabung_page.dart';
 import 'package:wiscash_/page/home/pendidikan_page.dart';
@@ -143,7 +143,7 @@ class _HomeMenuState extends State<HomeMenu> {
                             ),
                           ),
                           SizedBox(height: 19),
-                          GridItem(
+                          GridItemAdapter(
                             items: activeCategory == 'Populer'
                                 ? favoriteItems
                                 : otherItems,
