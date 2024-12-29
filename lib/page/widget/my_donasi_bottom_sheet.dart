@@ -51,7 +51,7 @@ class MyDonasiBottomSheet extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               MyText(
-                text: "Biaya Transaksi",
+                text: "Biaya Admin",
                 fontSize: 14,
                 color: Colors.black,
                 fontWeight: FontWeight.bold,
