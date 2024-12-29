@@ -15,7 +15,7 @@ class PendidikanPage extends StatelessWidget {
           fontWeight: FontWeight.bold,
           color: Colors.black,
         ),
-        backgroundColor: Colors.white,
+        backgroundColor: Color(0xFFF8F9FA),
         elevation: 0,
         iconTheme: IconThemeData(color: Colors.black),
       ),
