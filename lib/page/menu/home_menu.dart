@@ -12,6 +12,7 @@ import 'package:wiscash_/page/home/pulsa_page.dart';
 import 'package:wiscash_/page/home/rekomendasi_lainnya_page.dart';
 import 'package:wiscash_/page/home/telkom_page.dart';
 import 'package:wiscash_/page/home/voucher_google_page.dart';
+import 'package:wiscash_/page/home/wisboom_page.dart';
 import 'package:wiscash_/page/widget/my_balance_card.dart';
 import 'package:wiscash_/page/widget/my_category_button.dart';
 import 'package:wiscash_/component_page/promo_card_home_adapter.dart';
@@ -70,16 +71,20 @@ class _HomeMenuState extends State<HomeMenu> {
       'route': () => PendidikanPage(),
     },
     {
-      'icon': Icons.play_arrow_rounded,
-      'title': 'Voucher Google Play',
-      'route': () => VoucherGooglePage()
+      'icon': Icons.all_inclusive_sharp,
+      'title': 'WisBoom',
+      'route': () => WisboomPage()
     },
     {
       'icon': Icons.add_card,
       'title': 'BPJS',
       'route': () => BpjsPage(),
     },
-    {'icon': Icons.gamepad, 'title': 'Voucher Games'},
+    {
+      'icon': Icons.play_arrow_rounded,
+      'title': 'Voucher Google Play',
+      'route': () => VoucherGooglePage()
+    },
   ];
 
   @override
@@ -178,10 +183,10 @@ class _HomeMenuState extends State<HomeMenu> {
                               width: double.infinity,
                               height: 150,
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(15),
+                                borderRadius: BorderRadius.circular(10),
                                 image: const DecorationImage(
                                   image: AssetImage(
-                                    "assets/image/Beli Tiket Liburan di Traveloka, Trip, dan Booking.com pake WISCASH.png",
+                                    "assets/image/Beli Tiket Liburan  .png",
                                   ),
                                   fit: BoxFit.cover,
                                 ),
@@ -189,7 +194,37 @@ class _HomeMenuState extends State<HomeMenu> {
                                   BoxShadow(
                                     color: Colors.black.withOpacity(0.2),
                                     blurRadius: 5,
-                                    offset: Offset(0, 4),
+                                    offset: Offset(0, 2),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          const SizedBox(height: 20),
+                          GestureDetector(
+                            onTap: () {
+                              Get.to(
+                                () => RekomendasiLainnyaPage(),
+                                transition: Transition.rightToLeft,
+                                duration: const Duration(milliseconds: 350),
+                              );
+                            },
+                            child: Container(
+                              width: double.infinity,
+                              height: 150,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(15),
+                                image: const DecorationImage(
+                                  image: AssetImage(
+                                    "assets/image/Beli pulsa.png",
+                                  ),
+                                  fit: BoxFit.cover,
+                                ),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.black.withOpacity(0.2),
+                                    blurRadius: 5,
+                                    offset: Offset(0, 2),
                                   ),
                                 ],
                               ),

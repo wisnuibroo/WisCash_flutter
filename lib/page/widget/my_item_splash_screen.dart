@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class SplashscreenModel extends StatelessWidget {
+class MyItemSplashScreen extends StatelessWidget {
   final String? text, image;
 
-  const SplashscreenModel({
+  const MyItemSplashScreen({
     Key? key,
     required this.text,
     required this.image,
