@@ -9,27 +9,7 @@ class PerguruanDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final PerguruanController perguruanController =
-        Get.put(PerguruanController());
-
-    final List<String> jenisBiaya = [
-      "SPP",
-      "Uang Pangkal",
-      "Uang Asrama",
-      "Infaq"
-    ];
-
-    final List<String> nominalList = [
-      "25.000",
-      "50.000",
-      "70.000",
-      "100.000",
-      "150.000",
-      "250.000",
-      "350.000",
-      "500.000",
-      "1.000.000"
-    ];
+    final PerguruanController perguruanController=Get.put(PerguruanController());
 
     return Scaffold(
       appBar: AppBar(
@@ -84,7 +64,7 @@ class PerguruanDetailPage extends StatelessWidget {
                   onChanged: (String? value) {
                     perguruanController.selectedJenisBiaya.value = value ?? "";
                   },
-                  items: jenisBiaya.map((String biaya) {
+                  items: perguruanController.jenisBiaya.map((String biaya) {
                     return DropdownMenuItem<String>(
                       value: biaya,
                       child: MyText(
@@ -114,7 +94,7 @@ class PerguruanDetailPage extends StatelessWidget {
                   mainAxisSpacing: 16,
                   childAspectRatio: 2.5,
                 ),
-                itemCount: nominalList.length,
+                itemCount: perguruanController.nominalList.length,
                 itemBuilder: (context, index) {
                   return ElevatedButton(
                     onPressed: () {
@@ -128,8 +108,7 @@ class PerguruanDetailPage extends StatelessWidget {
                         ),
                         builder: (context) {
                           return MyPerguruanBottomSheet(
-                            nominal: nominalList[index],
-                          );
+                              nominal: perguruanController.nominalList[index]);
                         },
                       );
                     },
@@ -143,7 +122,7 @@ class PerguruanDetailPage extends StatelessWidget {
                       elevation: 2,
                     ),
                     child: MyText(
-                      text: nominalList[index],
+                      text: perguruanController.nominalList[index],
                       fontSize: 14,
                       fontWeight: FontWeight.bold,
                       color: Colors.black,

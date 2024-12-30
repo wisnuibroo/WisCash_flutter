@@ -7,6 +7,25 @@ class PerguruanController extends GetxController {
   final TextEditingController amountController = TextEditingController();
   final selectedJenisBiaya = ''.obs;
 
+  final List<String> jenisBiaya = [
+    "SPP",
+    "Uang Pangkal",
+    "Uang Asrama",
+    "Infaq"
+  ];
+
+  final List<String> nominalList = [
+    "25.000",
+    "50.000",
+    "70.000",
+    "100.000",
+    "150.000",
+    "250.000",
+    "350.000",
+    "500.000",
+    "1.000.000"
+  ];
+
   void handlePerguruan(BuildContext context, int nominal) {
     final balanceController = Get.find<BalanceController>();
     final historyController = Get.find<HistoryController>();
