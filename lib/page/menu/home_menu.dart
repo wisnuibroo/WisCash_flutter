@@ -17,6 +17,7 @@ import 'package:wiscash_/page/widget/my_balance_card.dart';
 import 'package:wiscash_/page/widget/my_category_button.dart';
 import 'package:wiscash_/component_page/promo_card_home_adapter.dart';
 import 'package:wiscash_/page/widget/my_text.dart';
+import 'package:wiscash_/page/widget/my_kerjasama_card.dart';
 
 class HomeMenu extends StatefulWidget {
   @override
@@ -230,7 +231,37 @@ class _HomeMenuState extends State<HomeMenu> {
                               ),
                             ),
                           ),
-                          SizedBox(height: 50),
+                          SizedBox(height: 37),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 6),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    MyText(
+                                      text: "Kerjasama WisCash",
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 16,
+                                      color: Colors.black,
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(height: 8),
+                                MyText(
+                                  text: "WisCash bekerjasama dengan mereka",
+                                  fontWeight: FontWeight.normal,
+                                  fontSize: 12,
+                                  color: Colors.grey,
+                                ),
+                              ],
+                            ),
+                          ),
+                          SizedBox(height: 8),
+                          MyKerjasamaCard(),
+                          SizedBox(height: 30),
                           Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 6),
                             child: Row(
