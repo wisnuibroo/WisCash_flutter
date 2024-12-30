@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:wiscash_/controller/home/internet_controller.dart';
 import 'package:wiscash_/page/home/internet_detail_page.dart';
 import 'package:wiscash_/page/widget/my_item_list.dart';
 import 'package:wiscash_/page/widget/my_text.dart';
@@ -13,75 +14,14 @@ class InternetPage extends StatefulWidget {
 
 class _InternetPageState extends State<InternetPage> {
   final TextEditingController searchController = TextEditingController();
-
-  final List<Map<String, String>> internetList = [
-    {
-      'imageUrl':
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Biznet_Home_Logo.svg/800px-Biznet_Home_Logo.svg.png',
-      'title': 'Biznet Home'
-    },
-    {
-      'imageUrl':
-          'https://lenna-prod.s3.ap-southeast-1.amazonaws.com/upload/602/webchat/logocbn.png',
-      'title': 'CBN'
-    },
-    {
-      'imageUrl':
-          'https://images.glints.com/unsafe/1200x0/glints-dashboard.oss-ap-southeast-1.aliyuncs.com/company-logo/794e93822512c1c4bd6bfe291d7ee427.png',
-      'title': 'Comet Internet'
-    },
-    {
-      'imageUrl':
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/First_Media_logo.svg/1200px-First_Media_logo.svg.png',
-      'title': 'First Media'
-    },
-    {
-      'imageUrl':
-          'https://pendaftaran-indihome.net/wp-content/uploads/2023/07/logo_indiHome-1.png',
-      'title': 'Indihome'
-    },
-    {
-      'imageUrl':
-          'https://upload.wikimedia.org/wikipedia/commons/6/61/Indovision.png',
-      'title': 'Indovision'
-    },
-    {
-      'imageUrl':
-          'https://upload.wikimedia.org/wikipedia/commons/e/ea/K-VISION.png',
-      'title': 'K-Vision'
-    },
-    {
-      'imageUrl': 'https://img.uncyc.org/id/f/ff/MNCMedia2015.png',
-      'title': 'MNC Vision'
-    },
-    {
-      'imageUrl':
-          'https://myrepublic-jabodetabek.com/wp-content/uploads/2020/11/my-republic-brand-copy-crop.png',
-      'title': 'MyRepublic'
-    },
-    {
-      'imageUrl':
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Okevision.svg/3543px-Okevision.svg.png',
-      'title': 'Oke Vision'
-    },
-    {
-      'imageUrl':
-          'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhPGiUhbBtvHJXW_YRTOHnZ3p70Tnhu2TY-5OerbF8QIfFZlw-VEq7ZESKeaDA9Db9Ji_rrwuKVUyTSFthN1jbu4QGwm6WSmfJ51YZkIy0-w8aqQNwZWS3oxIdrmsCNjLVTuNIVa4X2P78/w600/Trans+Vision.png',
-      'title': 'Transvision'
-    },
-    {
-      'imageUrl':
-          'https://xlhomefiber.com/wp-content/uploads/2024/11/sempak.png',
-      'title': 'XL Home/XL Satu'
-    },
-  ];
+  final InternetController internetController = Get.put(InternetController());
 
   List<Map<String, String>> filteredList = [];
 
   @override
   void initState() {
     super.initState();
-    filteredList = List.from(internetList);
+    filteredList = List.from(internetController.internetList);
 
     searchController.addListener(_filterInternetList);
   }
@@ -96,7 +36,7 @@ class _InternetPageState extends State<InternetPage> {
   void _filterInternetList() {
     final query = searchController.text.toLowerCase();
     setState(() {
-      filteredList = internetList.where((item) {
+      filteredList = internetController.internetList.where((item) {
         final title = item['title']!.toLowerCase();
         return title.contains(query);
       }).toList();
