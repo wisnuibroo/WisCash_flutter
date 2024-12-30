@@ -4,6 +4,19 @@ import 'package:wiscash_/controller/home/balance_controller.dart';
 import 'package:wiscash_/controller/home/history_controller.dart';
 
 class DonasiController extends GetxController {
+
+  final List<String> nominalList = [
+      "25.000",
+      "50.000",
+      "70.000",
+      "100.000",
+      "150.000",
+      "250.000",
+      "350.000",
+      "500.000",
+      "1.000.000"
+    ];
+    
   void handleDonasi(BuildContext context, int nominal) {
     final balanceController = Get.find<BalanceController>();
     final historyController = Get.find<HistoryController>();
