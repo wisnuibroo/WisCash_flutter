@@ -6,21 +6,12 @@ import 'package:wiscash_/page/widget/my_button.dart';
 import 'package:wiscash_/page/widget/my_text.dart';
 import 'package:wiscash_/page/widget/my_text_field.dart';
 
-
 class PulsaPage extends StatelessWidget {
   const PulsaPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     final PulsaController pulsaController = Get.put(PulsaController());
-
-    final List<String> operators = [
-      "Smartfren",
-      "Telkomsel",
-      "Tri",
-      "Indosat",
-      "XL"
-    ];
 
     return Scaffold(
       appBar: AppBar(
@@ -86,7 +77,7 @@ class PulsaPage extends StatelessWidget {
                   onChanged: (String? value) {
                     pulsaController.selectedOperator.value = value ?? "";
                   },
-                  items: operators.map((String operator) {
+                  items: pulsaController.operators.map((String operator) {
                     return DropdownMenuItem<String>(
                       value: operator,
                       child: MyText(

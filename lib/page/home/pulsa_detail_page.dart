@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:wiscash_/controller/home/pulsa_controller.dart';
 import 'package:wiscash_/page/widget/my_pulsa_bottom_sheet.dart';
 import 'package:wiscash_/page/widget/my_text.dart';
 
@@ -7,17 +9,7 @@ class PulsaDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<String> nominalList = [
-      "25.000",
-      "50.000",
-      "70.000",
-      "100.000",
-      "150.000",
-      "250.000",
-      "350.000",
-      "500.000",
-      "1.000.000"
-    ];
+    final PulsaController pulsaController = Get.put(PulsaController());
 
     return Scaffold(
       appBar: AppBar(
@@ -58,7 +50,7 @@ class PulsaDetailPage extends StatelessWidget {
                   mainAxisSpacing: 16,
                   childAspectRatio: 2.5,
                 ),
-                itemCount: nominalList.length,
+                itemCount: pulsaController.nominalList.length,
                 itemBuilder: (context, index) {
                   return ElevatedButton(
                     onPressed: () {
@@ -72,8 +64,7 @@ class PulsaDetailPage extends StatelessWidget {
                         ),
                         builder: (context) {
                           return MyPulsaBottomSheet(
-                            nominal: nominalList[index],
-                          );
+                              nominal: pulsaController.nominalList[index]);
                         },
                       );
                     },
@@ -87,7 +78,7 @@ class PulsaDetailPage extends StatelessWidget {
                       elevation: 2,
                     ),
                     child: MyText(
-                      text: nominalList[index],
+                      text: pulsaController.nominalList[index],
                       fontSize: 14,
                       fontWeight: FontWeight.bold,
                       color: Colors.black,
