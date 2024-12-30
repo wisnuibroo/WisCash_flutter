@@ -11,25 +11,6 @@ class SekolahDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final SekolahController sekolahController = Get.put(SekolahController());
 
-    final List<String> jenisBiaya = [
-      "SPP",
-      "Uang Pangkal",
-      "Uang Asrama",
-      "Infaq"
-    ];
-
-    final List<String> nominalList = [
-      "25.000",
-      "50.000",
-      "70.000",
-      "100.000",
-      "150.000",
-      "250.000",
-      "350.000",
-      "500.000",
-      "1.000.000"
-    ];
-
     return Scaffold(
       appBar: AppBar(
         title: MyText(
@@ -83,7 +64,7 @@ class SekolahDetailPage extends StatelessWidget {
                   onChanged: (String? value) {
                     sekolahController.selectedJenisBiaya.value = value ?? "";
                   },
-                  items: jenisBiaya.map((String biaya) {
+                  items: sekolahController.jenisBiaya.map((String biaya) {
                     return DropdownMenuItem<String>(
                       value: biaya,
                       child: MyText(
@@ -113,7 +94,7 @@ class SekolahDetailPage extends StatelessWidget {
                   mainAxisSpacing: 16,
                   childAspectRatio: 2.5,
                 ),
-                itemCount: nominalList.length,
+                itemCount: sekolahController.nominalList.length,
                 itemBuilder: (context, index) {
                   return ElevatedButton(
                     onPressed: () {
@@ -127,8 +108,7 @@ class SekolahDetailPage extends StatelessWidget {
                         ),
                         builder: (context) {
                           return MySekolahBottomSheet(
-                            nominal: nominalList[index],
-                          );
+                              nominal: sekolahController.nominalList[index]);
                         },
                       );
                     },
@@ -142,7 +122,7 @@ class SekolahDetailPage extends StatelessWidget {
                       elevation: 2,
                     ),
                     child: MyText(
-                      text: nominalList[index],
+                      text: sekolahController.nominalList[index],
                       fontSize: 14,
                       fontWeight: FontWeight.bold,
                       color: Colors.black,
