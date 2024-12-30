@@ -4,8 +4,22 @@ import 'package:wiscash_/controller/home/balance_controller.dart';
 import 'package:wiscash_/controller/home/history_controller.dart';
 
 class VoucherGoogleController extends GetxController {
-  final TextEditingController userIdController = TextEditingController(); 
+  final TextEditingController userIdController = TextEditingController();
   final TextEditingController amountController = TextEditingController();
+
+  final List<String> nominalList = [
+    "25.000",
+    "50.000",
+    "70.000",
+    "100.000",
+    "150.000",
+    "250.000",
+    "350.000",
+    "500.000",
+    "1.000.000",
+    "1.700.000",
+    "2.000.000"
+  ];
 
   void handleVoucherGoogle(BuildContext context, int nominal) {
     final balanceController = Get.find<BalanceController>();
@@ -21,20 +35,17 @@ class VoucherGoogleController extends GetxController {
       return;
     }
 
-
     balanceController.addBalance(-nominal);
 
-  
     historyController.addTransaction(
       type: 'Voucher Google Play',
       amount: nominal,
-      detail: 'Transaksi Voucher Google Play untuk User ID ${userIdController.text}',
+      detail: 'Transaksi Voucher Google Play',
     );
 
     // Membersihkan input
     userIdController.clear();
     amountController.clear();
-
 
     _showSuccessSnackbar('Voucher Google Play', nominal);
 
@@ -71,7 +82,7 @@ class VoucherGoogleController extends GetxController {
 
   @override
   void onClose() {
-    userIdController.dispose(); 
+    userIdController.dispose();
     amountController.dispose();
     super.onClose();
   }

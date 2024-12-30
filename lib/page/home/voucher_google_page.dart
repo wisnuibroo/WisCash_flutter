@@ -10,21 +10,7 @@ class VoucherGooglePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final VoucherGoogleController voucherGoogleController = Get.put(VoucherGoogleController());
-
-    final List<String> nominalList = [
-      "25.000",
-      "50.000",
-      "70.000",
-      "100.000",
-      "150.000",
-      "250.000",
-      "350.000",
-      "500.000",
-      "1.000.000",
-      "1.700.000",
-      "2.000.000"
-    ];
+    final VoucherGoogleController voucherGoogleController =Get.put(VoucherGoogleController());
 
     return Scaffold(
       appBar: AppBar(
@@ -98,7 +84,7 @@ class VoucherGooglePage extends StatelessWidget {
                   mainAxisSpacing: 16,
                   childAspectRatio: 2.5,
                 ),
-                itemCount: nominalList.length,
+                itemCount: voucherGoogleController.nominalList.length,
                 itemBuilder: (context, index) {
                   return ElevatedButton(
                     onPressed: () {
@@ -112,8 +98,8 @@ class VoucherGooglePage extends StatelessWidget {
                         ),
                         builder: (context) {
                           return MyVoucherBottomSheet(
-                            nominal: nominalList[index],
-                          );
+                              nominal:
+                                  voucherGoogleController.nominalList[index]);
                         },
                       );
                     },
@@ -127,7 +113,7 @@ class VoucherGooglePage extends StatelessWidget {
                       elevation: 2,
                     ),
                     child: MyText(
-                      text: nominalList[index],
+                      text: voucherGoogleController.nominalList[index],
                       fontSize: 14,
                       fontWeight: FontWeight.bold,
                       color: Colors.black,
