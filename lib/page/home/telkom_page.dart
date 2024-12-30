@@ -123,7 +123,7 @@ class TelkomPage extends StatelessWidget {
               width: double.infinity,
               child: MyButton(
                 onPressed: () {
-                  telkomIndihomeController.handleTokenListrik(context);
+                  telkomIndihomeController.handleTelkom(context);
                 },
                 textButton: "Bayar",
                 backgroundColor: const Color(0xFF025A5F),

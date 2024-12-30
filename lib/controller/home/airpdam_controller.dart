@@ -4,11 +4,20 @@ import 'package:wiscash_/controller/home/balance_controller.dart';
 import 'package:wiscash_/controller/home/history_controller.dart';
 
 class AirpdamController extends GetxController {
-  final TextEditingController nomorPelangganController =
-      TextEditingController();
+  final TextEditingController nomorPelangganController = TextEditingController();
   final TextEditingController amountController = TextEditingController();
   final selectedLokasi = ''.obs;
   var nomorTerakhir = ''.obs;
+
+  final List<String> lokasi = [
+      "Surabaya",
+      "Semarang",
+      "Bandung",
+      "Jakarta",
+      "Tangerang",
+      "Yogyakarta",
+      "Surakarta"
+    ];
 
   void handleAirPDAM(BuildContext context) {
     final balanceController = Get.find<BalanceController>();

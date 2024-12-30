@@ -11,7 +11,7 @@ class MyInternetBottomSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final donasiController = Get.put(InternetController());
+    final internetController = Get.put(InternetController());
     final int nominalInt = int.parse(nominal.replaceAll('.', ''));
 
     return Padding(
@@ -98,7 +98,7 @@ class MyInternetBottomSheet extends StatelessWidget {
               Expanded(
                 child: MyButton(
                   onPressed: () {
-                    donasiController.handleDonasi(context, nominalInt);
+                    internetController.handleInternet(context, nominalInt);
                   },
                   textButton: "Konfirmasi",
                   backgroundColor: Color(0xFF025A5F),

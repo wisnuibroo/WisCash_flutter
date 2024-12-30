@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wiscash_/controller/home/airpdam_controller.dart';
 import 'package:wiscash_/page/widget/my_button.dart';
+
 import 'package:wiscash_/page/widget/my_text.dart';
 import 'package:wiscash_/page/widget/my_text_field.dart';
 
@@ -11,16 +12,6 @@ class AirpdamPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AirpdamController airpdamController = Get.put(AirpdamController());
-
-    final List<String> lokasi = [
-      "Surabaya",
-      "Semarang",
-      "Bandung",
-      "Jakarta",
-      "Tangerang",
-      "Yogyakarta",
-      "Surakarta"
-    ];
 
     return Scaffold(
       appBar: AppBar(
@@ -77,7 +68,7 @@ class AirpdamPage extends StatelessWidget {
                   onChanged: (String? value) {
                     airpdamController.selectedLokasi.value = value ?? "";
                   },
-                  items: lokasi.map((String lokasi) {
+                  items: airpdamController.lokasi.map((String lokasi) {
                     return DropdownMenuItem<String>(
                       value: lokasi,
                       child: MyText(

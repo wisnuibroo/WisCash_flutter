@@ -7,7 +7,7 @@ class PulsaController extends GetxController {
   final nomorOperatorController = TextEditingController();
   final selectedOperator = ''.obs;
 
-  void handleDonasi(BuildContext context, int nominal) {
+  void handlePulsa(BuildContext context, int nominal) {
     final balanceController = Get.find<BalanceController>();
     final historyController = Get.find<HistoryController>();
 

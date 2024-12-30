@@ -4,7 +4,7 @@ import 'package:wiscash_/controller/home/balance_controller.dart';
 import 'package:wiscash_/controller/home/history_controller.dart';
 
 class InternetController extends GetxController {
-  void handleDonasi(BuildContext context, int nominal) {
+  void handleInternet(BuildContext context, int nominal) {
     final balanceController = Get.find<BalanceController>();
     final historyController = Get.find<HistoryController>();
 

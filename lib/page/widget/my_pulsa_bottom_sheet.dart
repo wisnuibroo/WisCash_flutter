@@ -98,7 +98,7 @@ class MyPulsaBottomSheet extends StatelessWidget {
               Expanded(
                 child: MyButton(
                   onPressed: () {
-                    pulsaController.handleDonasi(context, nominalInt);
+                    pulsaController.handlePulsa(context, nominalInt);
                   },
                   textButton: "Konfirmasi",
                   backgroundColor: Color(0xFF025A5F),

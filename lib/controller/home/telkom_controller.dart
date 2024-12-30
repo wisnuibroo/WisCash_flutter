@@ -4,12 +4,11 @@ import 'package:wiscash_/controller/home/balance_controller.dart';
 import 'package:wiscash_/controller/home/history_controller.dart';
 
 class TelkomController extends GetxController {
-  final TextEditingController nomorPelangganController =
-      TextEditingController();
+  final TextEditingController nomorPelangganController = TextEditingController();
   final TextEditingController amountController = TextEditingController();
   var nomorTerakhir = ''.obs; // Menyimpan nomor meter terakhir yang dimasukkan
 
-  void handleTokenListrik(BuildContext context) {
+  void handleTelkom(BuildContext context) {
     final balanceController = Get.find<BalanceController>();
     final historyController = Get.find<HistoryController>();
 
@@ -51,8 +50,7 @@ class TelkomController extends GetxController {
     historyController.addTransaction(
       type: 'Telkom Indihome',
       amount: nominal,
-      detail:
-          'Pembayaran telkom indihome untuk nomor pelanggan $nomorPelanggan',
+      detail: 'Pembayaran telkom indihome untuk nomor pelanggan $nomorPelanggan',
     );
 
     nomorPelangganController.clear();
