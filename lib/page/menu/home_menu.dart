@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wiscash_/component_page/grid_item_adapter.dart';
 import 'package:wiscash_/page/home/airpdam_page.dart';
+import 'package:wiscash_/page/home/bpjs_page.dart';
 import 'package:wiscash_/page/home/donasi_page.dart';
 import 'package:wiscash_/page/home/internet_page.dart';
 import 'package:wiscash_/page/home/nabung_page.dart';
@@ -73,7 +74,11 @@ class _HomeMenuState extends State<HomeMenu> {
       'title': 'Voucher Google Play',
       'route': () => VoucherGooglePage()
     },
-    {'icon': Icons.add_card, 'title': 'BPJS'},
+    {
+      'icon': Icons.add_card,
+      'title': 'BPJS',
+      'route': () => BpjsPage(),
+    },
     {'icon': Icons.gamepad, 'title': 'Voucher Games'},
   ];
 

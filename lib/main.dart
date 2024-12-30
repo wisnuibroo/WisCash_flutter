@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wiscash_/controller/home/airpdam_controller.dart';
 import 'package:wiscash_/controller/home/balance_controller.dart';
+import 'package:wiscash_/controller/home/bpjs_kesehatan_controller.dart';
+import 'package:wiscash_/controller/home/bpjs_ketenagakerjaan_controller.dart';
 import 'package:wiscash_/controller/home/buat_impian_controller.dart';
 import 'package:wiscash_/controller/home/history_controller.dart';
 import 'package:wiscash_/controller/home/tagihan_listrik_controller.dart';
@@ -18,6 +20,8 @@ void main() {
   Get.put(TagihanListrikController());
   Get.put(AirpdamController());
   Get.put(TelkomController());
+  Get.put(BpjsKesehatanController());
+  Get.put(BpjsKetenagakerjaanController());
   runApp(const MyApp());
 }
 
